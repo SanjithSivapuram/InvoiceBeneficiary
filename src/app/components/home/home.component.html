@@ -1,0 +1,23 @@
+<div class="row navbar">
+    <div class="col-1">
+        <a routerLink="/home">HOME</a>
+    </div>
+    <div class="col-10">
+        <a routerLink="/invoice">INVOICES</a>
+    </div>
+    <div class="col-1 navbarbtn text-center">
+        <ng-container *ngIf="username == null;then signin else logout"></ng-container>
+        <ng-template #logout>
+            <a href="javascript:void(0)" (click)="onLogout()">Logout</a>
+        </ng-template>
+        <ng-template #signin>
+            <a routerLink="/authpage">Sign In</a>
+        </ng-template>
+    </div>
+</div>
+<div class="row homeheading">
+    <div class="col-12 text-center">
+        <h1>Welcome To</h1>
+        <h3>Invoice Beneficiary App</h3>
+    </div>
+</div>

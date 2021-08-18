@@ -1,0 +1,83 @@
+.navbar {
+  background-color: #1F618D !important;
+  padding: 12px 16px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  border-bottom: 1px solid transparent;
+  transition: 0.2s all linear;
+}
+
+.navbar a:hover {
+  border-bottom: 1px solid white;
+}
+
+.navbarbtn {
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 8px 10px;
+  transition: 0.2s all linear;
+}
+
+.navbarbtn:hover {
+  border: 2px solid white;
+}
+
+.invoiceList {
+  border: 3px solid #1F618D;
+  padding: 14px;
+  color: #1F618D;
+  border-radius: 10px;
+  margin: 0px auto;
+  vertical-align: middle;
+}
+
+.deleteBtn {
+  background-color: transparent;
+  border: none;
+  color: #E74C3C;
+}
+
+.invoiceList {
+  height: 390px;
+}
+
+.invoiceList a {
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  color: #1F618D;
+}
+
+h1 {
+  color: #1F618D;
+}
+
+.pageRow {
+  vertical-align: middle;
+}
+
+.pageBtn button {
+  color: #1F618D;
+  background-color: transparent;
+  border: none;
+  font-size: 2em;
+  transition: 0.2s all linear;
+}
+
+.pageBtn button:disabled {
+  opacity: 0.5;
+}
+
+.pageTxt {
+  color: #1F618D;
+}
+
+.addBtn {
+  background-color: #1F618D;
+  text-decoration: none;
+  padding: 12px 16px;
+  color: white;
+}

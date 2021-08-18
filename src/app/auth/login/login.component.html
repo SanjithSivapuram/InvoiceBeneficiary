@@ -1,0 +1,28 @@
+<div class="row navbar">
+    <div class="col-1">
+        <a routerLink="/home">HOME</a>
+    </div>
+    <div class="col-11">
+        <a routerLink="/invoice">INVOICE</a>
+    </div>
+</div>
+<BR><BR><BR><BR><BR><BR>
+<div class="row">
+    <div class="col-3 card login_form">
+        <h2 class="text-center">LOGIN</h2>
+        <BR>
+        <form [formGroup]='loginForm' (submit)='onLoginFormSubmit()' class="text-center">
+            <input type="text" placeholder="Enter Username" formControlName='username' />
+            <div class="validatorCss" *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].touched || loginForm.controls['username'].dirty)">
+                Invalid Username
+            </div>
+            <BR><BR>
+            <input type="password" placeholder="Enter Password" formControlName='password' />
+            <div class="validatorCss" *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].touched || loginForm.controls['password'].dirty)">
+                Invalid Password
+            </div>
+            <BR><BR>
+            <button class="login" [disabled]=!loginForm.valid>Login</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+<div class="row navbar">
+    <div class="col-1">
+        <a routerLink="/home">HOME</a>
+    </div>
+    <div class="col-10">
+        <a routerLink="/invoice">INVOICES</a>
+    </div>
+    <div class="col-1 navbarbtn text-center">
+        <ng-container *ngIf="username == null;then signin else logout"></ng-container>
+        <ng-template #logout>
+            <a href="javascript:void(0)" (click)="onLogout()">Logout</a>
+        </ng-template>
+        <ng-template #signin>
+            <a routerLink="/authpage">Sign In</a>
+        </ng-template>
+    </div>
+</div>
+<BR>
+<h1 class="text-center">List Of Invoices</h1>
+<BR>
+<div class="row">
+    <div class="col-11 invoiceList text-center">
+        <div class="row">
+            <div class="col-1">
+                Id
+            </div>
+            <div class="col-2">
+                Amount
+            </div>
+            <div class="col-2">
+                Apply Date
+            </div>
+            <div class="col-3">
+                Beneficiary Name
+            </div>
+            <div class="col-2">
+                Beneficiary Number
+            </div>
+            <div class="col-1">
+            </div>
+            <div class="col-1">
+            </div>
+            <BR><BR>
+            <HR>
+        </div>
+        <div *ngFor='let i of invoices'>
+            <div class="row">
+                <div class="col-1">
+                    {{i.id}}
+                </div>
+                <div class="col-2">
+                    {{i.amount}}
+                </div>
+                <div class="col-2">
+                    {{i.applyDate}}
+                </div>
+                <div class="col-3">
+                    {{i.beneficiary.name}}
+                </div>
+                <div class="col-2">
+                    {{i.beneficiary.beneficiaryNumber}}
+                </div>
+                <div class="col-1">
+                    <button class="deleteBtn" (click)="onDelete(i.id)"><i class="bi bi-trash"></i></button> 
+                </div>
+                <div class="col-1">
+                    <a routerLink="/edit-invoice/{{i.id}}"><i class="bi bi-pencil"></i></a>
+                </div>
+                <BR><BR>
+                <HR>
+            </div>
+        </div>
+    </div>
+</div>
+<BR>
+<div class="row pageRow">
+    <div class="col-4 text-center pageBtn">
+        <button (click)='onPrevious()' [disabled]="page == 0"><i class="bi bi-arrow-left-square-fill"></i></button>
+    </div>
+    <div class="col-4 text-center pageTxt">
+        <h3>Page {{page}}</h3>
+    </div>
+    <div class="col-4 text-center pageBtn">
+        <button (click)="onNext()" [disabled]="num<size"><i class="bi bi-arrow-right-square-fill"></i></button>
+    </div>
+</div>
+<div *ngIf="error == true">
+    {{msg}}
+</div>
+<BR>
+<div class="row">
+    <div class="col-12 text-center">
+        <a class="addBtn" routerLink="/add-invoice">Add Invoice</a>
+    </div>
+</div>

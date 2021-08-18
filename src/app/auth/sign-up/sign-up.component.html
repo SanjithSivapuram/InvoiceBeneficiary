@@ -1,0 +1,32 @@
+<BR>
+<div class="row">
+    <div class="col-3 card signUp_form">
+        <h2 class="text-center">Sign Up</h2>
+        <BR>
+        <form [formGroup]='signUpForm' (submit)='onSignUpFormSubmit()' class="text-center">
+            <input type="text" placeholder="Enter Name" formControlName='name' />
+            <div class="validatorCss" *ngIf="signUpForm.controls['name'].invalid && (signUpForm.controls['name'].touched || signUpForm.controls['name'].dirty)">
+                Invalid name
+            </div>
+            <BR><BR>
+            <input type="text" placeholder="Enter Username" formControlName='username' />
+            <div class="validatorCss" *ngIf="signUpForm.controls['username'].invalid && (signUpForm.controls['username'].touched || signUpForm.controls['username'].dirty)">
+                Invalid Username
+            </div>
+            <BR><BR>
+            <input type="text" placeholder="Enter Password" formControlName='password' />
+            <div class="validatorCss" *ngIf="signUpForm.controls['password'].invalid && (signUpForm.controls['password'].touched || signUpForm.controls['password'].dirty)">
+                Invalid Password
+            </div>
+            <BR><BR>
+            <select formControlName='role'>
+                <option value="" disabled selected>Select your Role</option>
+                <option value="ADMIN">ADMIN</option>
+                <option value="EXECUTIVE">EXECUTIVE</option>
+                <option value="CLERK">CLERK</option>
+            </select>
+            <BR><BR>
+            <button class="signUp" [disabled]=!signUpForm.valid>Sign Up</button>
+        </form>
+    </div>
+</div>

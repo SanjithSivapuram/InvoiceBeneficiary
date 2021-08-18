@@ -1,0 +1,25 @@
+<BR><BR><BR><BR><BR>
+<div class="row">
+<div class="col-3 invoice_form">
+<h1 class="text-center">Add Invoice</h1>
+<BR>
+<form [formGroup]='invoiceForm' (submit)='onInvoiceFormSubmit()' class="text-center">
+    <input type='text' placeholder="Enter Amount" formControlName='amount'/>
+    <div *ngIf="invoiceForm.controls['amount'].invalid && (invoiceForm.controls['amount'].touched || invoiceForm.controls['amount'].dirty)">
+        Invalid Amount
+    </div>
+    <BR><BR>
+    <input type='date' placeholder="Enter Date in YYYY-MM-DD" formControlName='applyDate'/>
+    <div *ngIf="invoiceForm.controls['applyDate'].invalid && (invoiceForm.controls['applyDate'].touched || invoiceForm.controls['applyDate'].dirty)">
+        Invalid Date
+    </div>
+    <BR><BR>
+    <select formControlName='beneficiary'>
+        <option value="" disabled>Select Beneficiary</option>
+        <option *ngFor='let b of beneficiaries' value="{{b.id}}">{{b.name}}</option>
+    </select>
+    <BR><BR>
+    <button [disabled]='!invoiceForm.valid'>Add Invoice</button>
+</form>
+</div>
+</div>  
